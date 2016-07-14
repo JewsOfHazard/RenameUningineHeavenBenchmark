@@ -32,5 +32,5 @@ if __name__ == "__main__":
 	setScriptLocation()
 	
 	for file in os.listdir(os.getcwd()):
-		if file not in 'rename.py':
+		if file not in os.path.basename(__file__):
 			os.rename(file, file[:29]+getMonth(file[33:35])+"-"+getDate(file[35:37])+"-"+file[29:33]+file[37:])
