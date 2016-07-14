@@ -5,7 +5,6 @@ def setScriptLocation():
 	os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 def getMonth(month):
-	print(month)
 	return {
 		'01':'Jan',
 		'02':'Feb',
