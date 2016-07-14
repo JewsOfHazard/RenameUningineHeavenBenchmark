@@ -1,3 +1,4 @@
+#Github link: https://github.com/JewsOfHazard/RenameUningineHeavenBenchmark
 import os
 
 def setScriptLocation():
