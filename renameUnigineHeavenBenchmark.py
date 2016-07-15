@@ -17,7 +17,7 @@ def getMonth(month):
 		'09':'Sep',
 		'10':'Oct',
 		'11':'Nov',
-		'12':'Dec',
+		'12':'Dec'
 	}[month]
 	
 def getDate(date):
@@ -28,9 +28,22 @@ def getDate(date):
 	}
 	return date + dict.get(date, 'th')
 	
+def getTime(time):
+	if int(time) < 1200:
+		return time+"AM"
+	else:
+		formatted_time = str(int(time)-1200)+"PM"
+		if len(formatted_time) == 4:
+			return "12"+formatted_time
+		elif len(formatted_time) == 5:
+			return "0"+formatted_time
+		else:
+			return formatted_time
+
 if __name__ == "__main__":
 	setScriptLocation()
 	
 	for file in os.listdir(os.getcwd()):
 		if file not in os.path.basename(__file__) and len(file) is 47:
-			os.rename(file, file[:29]+getMonth(file[33:35])+"-"+getDate(file[35:37])+"-"+file[29:33]+file[37:])
+			os.rename(file, file[:29]+getMonth(file[33:35])+"-"+getDate(file[35:37])+"-"+file[29:33]+"-"+getTime(file[38:42])+".html")
+			
